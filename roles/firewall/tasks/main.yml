@@ -1,0 +1,10 @@
+- name: enable and start firewalld
+  service: name=firewalld enabled=yes state=started
+  tags:
+    - firewall 
+
+- name: set port policy
+  firewalld: port=80/tcp permanent=true state=enabled immediate=yes  
+  tags:
+    - firewall 
+  notify: firewall restart
