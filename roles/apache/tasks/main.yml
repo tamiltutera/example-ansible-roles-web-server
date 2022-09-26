@@ -9,7 +9,7 @@
     - apache
   # ensure apache is installed in redhat and centos platform distribution
 - name: ensure apache is at the latest version
-  yum: name=httpd state=absent
+  yum: name=httpd state=present
   when: ansible_os_family == 'CentOS' or ansible_os_family == 'RedHat'
   tags:
     - apache
